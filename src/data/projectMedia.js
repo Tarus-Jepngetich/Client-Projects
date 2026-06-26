@@ -1,5 +1,5 @@
 const allMedia = import.meta.glob(
-  "../assets/projects/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,mp4,MP4,mov,MOV}",
+  "../assets/Projects/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,mp4,MP4,mov,MOV}",
   {
     eager: true,
     import: "default",
@@ -8,7 +8,7 @@ const allMedia = import.meta.glob(
 
 export function getProjectMedia(folderName) {
   const media = Object.entries(allMedia)
-    .filter(([path]) => path.includes(`/projects/${folderName}/`))
+    .filter(([path]) => path.includes(`/Projects/${folderName}/`))
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([path, src]) => {
       const isVideo = /\.(mp4|mov)$/i.test(path);
